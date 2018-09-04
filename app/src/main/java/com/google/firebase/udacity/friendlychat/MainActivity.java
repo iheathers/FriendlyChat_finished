@@ -15,6 +15,7 @@
  */
 package com.google.firebase.udacity.friendlychat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -171,6 +172,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN){
+            if (resultCode == RESULT_OK){
+                Toast.makeText(this, "Signed In!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Signed In Cancelled", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
     }
 
     @Override
